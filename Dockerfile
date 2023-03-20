@@ -14,3 +14,7 @@ RUN yarn verify-format && yarn verify-spell
 
 FROM jenkins/jenkins:2.395-jdk11 as final
 RUN ls
+USER root
+ARG version=unknown
+RUN echo $version > /version.txt
+USER jenkins
