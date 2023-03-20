@@ -1,0 +1,21 @@
+failure-threshold: info
+# format: string
+# ignored: [string]
+# label-schema:
+#   author: string
+#   contact: string
+#   created: timestamp
+#   version: string
+#   documentation: string
+#   git-revision: string
+#   license: string
+# no-color: boolean
+# no-fail: boolean
+# override
+#   error: [string]
+#   warning: [string]
+#   info: [string]
+#   style: [string]
+strict-labels: true
+disable-ignore-pragma: false
+# trustedRegistries: string | [string]

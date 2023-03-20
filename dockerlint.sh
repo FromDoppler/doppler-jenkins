@@ -18,17 +18,9 @@ cd "$(dirname "$0")"
 export MSYS_NO_PATHCONV=1
 export MSYS2_ARG_CONV_EXCL="*"
 
-echo Verify git commit conventions...
-sh ./gitlint.sh
+# See more information in https://github.com/hadolint/hadolint
 
-echo Verify Dockerfile lint...
-sh ./dockerlint.sh
-
-echo Verify .sh files...
-docker build --target verify-sh .
-
-echo Verify Format...
-docker build --target verify-format .
-
-echo Build...
-docker build --target build .
+docker run --rm -i \
+  -v "$(pwd)/hadolint.yaml":/.config/hadolint.yaml \
+  hadolint/hadolint:v2.11.0-alpine \
+  < Dockerfile
