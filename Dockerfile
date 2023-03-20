@@ -26,6 +26,9 @@ RUN echo "deb [arch=$(dpkg --print-architecture) \
 RUN apt-get update && apt-get install -y --no-install-recommends docker-ce-cli=5:23.0.1-1~debian.11~bullseye \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
+USER jenkins
+RUN jenkins-plugin-cli --plugins "blueocean docker-workflow github-oauth configuration-as-code"
+USER root
 ARG version=unknown
 RUN echo $version > /version.txt
 USER jenkins
