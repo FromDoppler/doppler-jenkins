@@ -32,6 +32,7 @@ RUN jenkins-plugin-cli --plugins \
   blueocean \
   docker-workflow \
   github-oauth \
+  basic-branch-build-strategies \
   configuration-as-code
 USER root
 ARG version=unknown
