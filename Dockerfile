@@ -14,7 +14,6 @@ RUN yarn verify-format && yarn verify-spell
 
 FROM jenkins/jenkins:2.396-jdk11 as final
 USER root
-RUN ls /var/run && usermod -aG root jenkins
 RUN apt-get update && apt-get install -y --no-install-recommends lsb-release=11.1.0 \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
