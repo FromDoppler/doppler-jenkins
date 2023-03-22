@@ -34,6 +34,7 @@ RUN jenkins-plugin-cli --plugins \
   docker-workflow \
   github-oauth \
   basic-branch-build-strategies \
+  github-scm-trait-notification-context \
   configuration-as-code
 # USER root
 ARG version=unknown
