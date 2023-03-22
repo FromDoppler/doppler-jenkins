@@ -28,7 +28,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends docker-ce-cli=5
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 USER jenkins
-RUN jenkins-plugin-cli --plugins "blueocean docker-workflow github-oauth configuration-as-code"
+RUN jenkins-plugin-cli --plugins \
+  blueocean \
+  docker-workflow \
+  github-oauth \
+  configuration-as-code
 USER root
 ARG version=unknown
 RUN echo $version > /version.txt
