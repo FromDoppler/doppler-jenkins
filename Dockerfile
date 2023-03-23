@@ -35,6 +35,7 @@ RUN jenkins-plugin-cli --plugins \
   github-oauth \
   basic-branch-build-strategies \
   github-scm-trait-notification-context \
+  job-dsl \
   configuration-as-code
 # USER root
 ARG version=unknown
