@@ -38,7 +38,7 @@ RUN jenkins-plugin-cli --plugins \
   basic-branch-build-strategies \
   github-scm-trait-notification-context \
   job-dsl \
-  configuration-as-code
+  configuration-as-code:1569.vb_72405b_80249
 # USER root
 ARG version=unknown
 RUN echo $version > /version.txt
