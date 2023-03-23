@@ -16,7 +16,9 @@ FROM jenkins/jenkins:2.396-jdk11 as final
 # Keep root user because I need it to access to /var/run/docker.sock
 # hadolint ignore=DL3002
 USER root
-RUN apt-get update && apt-get install -y --no-install-recommends lsb-release=11.1.0 \
+RUN apt-get update && apt-get install -y --no-install-recommends \
+  lsb-release=11.1.0 \
+  gitlint=0.15.0-1 \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 RUN curl -fsSLo /usr/share/keyrings/docker-archive-keyring.asc \
