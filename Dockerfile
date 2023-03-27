@@ -21,6 +21,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   gitlint=0.15.0-1 \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
+RUN curl -fsSLo sops.deb \
+  https://github.com/mozilla/sops/releases/download/v3.7.1/sops_3.7.1_amd64.deb \
+  && dpkg -i sops.deb \
+  && rm sops.deb
 RUN curl -fsSLo /usr/share/keyrings/docker-archive-keyring.asc \
   https://download.docker.com/linux/debian/gpg
 RUN echo "deb [arch=$(dpkg --print-architecture) \
