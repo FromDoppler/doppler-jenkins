@@ -31,14 +31,23 @@ RUN apt-get update && apt-get install -y --no-install-recommends docker-ce-cli=5
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 # USER jenkins
+
+# Plugin notes:
+# * docker-workflow consider removing it
+# * javax-mail-api:1.6.2-8 included by default
+# * sshd:3.270.vb_a_e71e64c287 included by default
+# * configuration-as-code:1613.vb_e54b_445ed6f has issues: https://github.com/jenkinsci/configuration-as-code-plugin/issues/2236
 RUN jenkins-plugin-cli --plugins \
-  blueocean \
-  docker-workflow \
-  github-oauth \
-  basic-branch-build-strategies \
-  github-scm-trait-notification-context \
-  job-dsl \
+  javax-mail-api:1.6.2-9 \
+  sshd:3.275.v9e17c10f2571 \
+  blueocean:1.27.3 \
+  docker-workflow:563.vd5d2e5c4007f \
+  github-oauth:0.39 \
+  basic-branch-build-strategies:71.vc1421f89888e \
+  github-scm-trait-notification-context:1.1 \
+  job-dsl:1.83 \
   configuration-as-code:1569.vb_72405b_80249
+
 # USER root
 ARG version=unknown
 RUN echo $version > /version.txt
