@@ -12,7 +12,7 @@ COPY . .
 ENV CI=true
 RUN yarn verify-format && yarn verify-spell
 
-FROM jenkins/jenkins:2.396-jdk17 as final
+FROM jenkins/jenkins:2.397-jdk17 as final
 # Keep root user because I need it to access to /var/run/docker.sock
 # hadolint ignore=DL3002
 USER root
