@@ -32,15 +32,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends docker-ce-cli=5
   && rm -rf /var/lib/apt/lists/*
 # USER jenkins
 
-# Plugin notes:
-# * configuration-as-code:1613.vb_e54b_445ed6f has issues: https://github.com/jenkinsci/configuration-as-code-plugin/issues/2236
 RUN jenkins-plugin-cli --plugins \
   blueocean:1.27.3 \
   github-oauth:0.39 \
   basic-branch-build-strategies:71.vc1421f89888e \
   github-scm-trait-notification-context:1.1 \
   job-dsl:1.83 \
-  configuration-as-code:1569.vb_72405b_80249
+  configuration-as-code:1616.v11393eccf675
 
 # USER root
 ARG version=unknown
