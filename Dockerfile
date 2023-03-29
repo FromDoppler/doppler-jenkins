@@ -33,11 +33,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends docker-ce-cli=5
 # USER jenkins
 
 # Plugin notes:
-# * docker-workflow consider removing it
 # * configuration-as-code:1613.vb_e54b_445ed6f has issues: https://github.com/jenkinsci/configuration-as-code-plugin/issues/2236
 RUN jenkins-plugin-cli --plugins \
   blueocean:1.27.3 \
-  docker-workflow:563.vd5d2e5c4007f \
   github-oauth:0.39 \
   basic-branch-build-strategies:71.vc1421f89888e \
   github-scm-trait-notification-context:1.1 \
