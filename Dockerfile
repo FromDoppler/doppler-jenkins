@@ -34,6 +34,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends docker-ce-cli=5
 
 RUN jenkins-plugin-cli --plugins \
   blueocean:1.27.3 \
+  docker-workflow:563.vd5d2e5c4007f \
   github-oauth:0.39 \
   basic-branch-build-strategies:71.vc1421f89888e \
   github-scm-trait-notification-context:1.1 \
