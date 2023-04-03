@@ -45,7 +45,7 @@ pipeline {
                         withDockerRegistry(credentialsId: "${DOCKER_CREDENTIALS_ID}", url: "") {
                             sh '''
                               sh build-n-publish.sh \
-                                --image=${DOCKER_IMAGE_NAME} \
+                                --image=${DOCKER_IMAGE_NAME}${PACKAGE_SUFFIX} \
                                 --commit=${GIT_COMMIT} \
                                 --name=pr-${CHANGE_ID}
                             '''
@@ -60,7 +60,7 @@ pipeline {
                         withDockerRegistry(credentialsId: "${DOCKER_CREDENTIALS_ID}", url: "") {
                             sh '''
                               sh build-n-publish.sh \
-                                --image=${DOCKER_IMAGE_NAME} \
+                                --image=${DOCKER_IMAGE_NAME}${PACKAGE_SUFFIX} \
                                 --commit=${GIT_COMMIT} \
                                 --name=main
                               '''
@@ -75,7 +75,7 @@ pipeline {
                         withDockerRegistry(credentialsId: "${DOCKER_CREDENTIALS_ID}", url: "") {
                             sh '''
                               sh build-n-publish.sh \
-                                --image=${DOCKER_IMAGE_NAME} \
+                                --image=${DOCKER_IMAGE_NAME}${PACKAGE_SUFFIX} \
                                 --commit=${GIT_COMMIT} \
                                 --name=INT
                               '''
@@ -92,7 +92,7 @@ pipeline {
                         withDockerRegistry(credentialsId: "${DOCKER_CREDENTIALS_ID}", url: "") {
                             sh '''
                               sh build-n-publish.sh \
-                                --image=${DOCKER_IMAGE_NAME} \
+                                --image=${DOCKER_IMAGE_NAME}${PACKAGE_SUFFIX} \
                                 --commit=${GIT_COMMIT} \
                                 --version=${TAG_NAME}
                             '''
