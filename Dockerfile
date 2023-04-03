@@ -36,7 +36,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     docker-buildx-plugin=0.10.4-1~debian.11~bullseye \
     docker-compose-plugin=2.17.2-1~debian.11~bullseye \
   && apt-get clean \
-  && rm -rf /var/lib/apt/lists/*
+  && rm -rf /var/lib/apt/lists/* \
+  && ln -s /usr/libexec/docker/cli-plugins/docker-compose /usr/bin/docker-compose
 # USER jenkins
 
 RUN jenkins-plugin-cli --plugins \
