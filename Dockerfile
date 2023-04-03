@@ -17,8 +17,9 @@ FROM jenkins/jenkins:2.397-jdk17 as final
 # hadolint ignore=DL3002
 USER root
 RUN apt-get update && apt-get install -y --no-install-recommends \
-  lsb-release=11.1.0 \
-  gitlint=0.15.0-1 \
+    lsb-release=11.1.0 \
+    gitlint=0.15.0-1 \
+    gettext-base=0.21-4 \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 RUN curl -fsSLo sops.deb \
