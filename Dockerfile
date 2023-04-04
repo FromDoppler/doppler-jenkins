@@ -33,7 +33,7 @@ RUN echo "deb [arch=$(dpkg --print-architecture) \
   https://download.docker.com/linux/debian \
   $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    docker-ce-cli=5:23.0.1-1~debian.11~bullseye \
+    docker-ce-cli=5:23.0.2-1~debian.11~bullseye \
     docker-buildx-plugin=0.10.4-1~debian.11~bullseye \
     docker-compose-plugin=2.17.2-1~debian.11~bullseye \
   && apt-get clean \
