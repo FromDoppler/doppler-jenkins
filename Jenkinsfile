@@ -83,11 +83,7 @@ pipeline {
                     }
                 }
                 stage('Publish final version images') {
-                    when {
-                        expression {
-                            return isVersionTag(readCurrentTag())
-                        }
-                    }
+                    when { tag pattern: "v\\d+\\.\\d+\\.\\d+", comparator: "REGEXP" }
                     steps {
                         withDockerRegistry(credentialsId: "${DOCKER_CREDENTIALS_ID}", url: "") {
                             sh '''
@@ -102,27 +98,4 @@ pipeline {
             }
         }
     }
-}
-
-
-def boolean isVersionTag(String tag) {
-    echo "checking version tag $tag"
-
-    if (tag == null) {
-        return false
-    }
-
-    // use your preferred pattern
-    def tagMatcher = tag =~ /v\d+\.\d+\.\d+/
-
-    return tagMatcher.matches()
-}
-
-def CHANGE_ID = env.CHANGE_ID
-
-// https://stackoverflow.com/questions/56030364/buildingtag-always-returns-false
-// workaround https://issues.jenkins-ci.org/browse/JENKINS-55987
-// TODO: read this value from Jenkins provided metadata
-def String readCurrentTag() {
-    return sh(returnStdout: true, script: 'echo ${TAG_NAME}').trim()
 }
