@@ -20,8 +20,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     lsb-release=11.1.0 \
     gitlint=0.15.0-1 \
     gettext-base=0.21-4 \
+    python3-pip=20.3.4-4+deb11u1 \
   && apt-get clean \
-  && rm -rf /var/lib/apt/lists/*
+  && rm -rf /var/lib/apt/lists/* \
+  && pip3 install --no-cache-dir awscli==1.27.113
 RUN curl -fsSLo sops.deb \
   https://github.com/mozilla/sops/releases/download/v3.7.1/sops_3.7.1_amd64.deb \
   && dpkg -i sops.deb \
