@@ -45,8 +45,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # USER jenkins
 
 RUN jenkins-plugin-cli --plugins \
-  blueocean:1.27.3 \
-  ws-cleanup:0.44 \
+  blueocean:1.27.4 \
+  ws-cleanup:0.45 \
   pipeline-stage-view:2.32 \
   docker-workflow:563.vd5d2e5c4007f \
   github-oauth:0.39 \
