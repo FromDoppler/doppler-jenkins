@@ -12,7 +12,7 @@ COPY . .
 ENV CI=true
 RUN yarn verify-format && yarn verify-spell
 
-FROM jenkins/jenkins:2.401-jdk17 as final
+FROM jenkins/jenkins:2.405-jdk17 as final
 # Keep root user because I need it to access to /var/run/docker.sock
 # hadolint ignore=DL3002
 USER root
@@ -23,7 +23,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3-pip=20.3.4-4+deb11u1 \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* \
-  && pip3 install --no-cache-dir awscli==1.27.113
+  && pip3 install --no-cache-dir awscli==1.27.134
 RUN curl -fsSLo sops.deb \
   https://github.com/mozilla/sops/releases/download/v3.7.1/sops_3.7.1_amd64.deb \
   && dpkg -i sops.deb \
@@ -37,7 +37,7 @@ RUN echo "deb [arch=$(dpkg --print-architecture) \
 RUN apt-get update && apt-get install -y --no-install-recommends \
     docker-ce-cli=5:23.0.2-1~debian.11~bullseye \
     docker-buildx-plugin=0.10.4-1~debian.11~bullseye \
-    docker-compose-plugin=2.17.2-1~debian.11~bullseye \
+    docker-compose-plugin=2.17.3-1~debian.11~bullseye \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* \
   && ln -s /usr/libexec/docker/cli-plugins/docker-compose /usr/bin/docker-compose
@@ -45,15 +45,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # USER jenkins
 
 RUN jenkins-plugin-cli --plugins \
-  blueocean:1.27.3 \
-  ws-cleanup:0.44 \
+  blueocean:1.27.4 \
+  ws-cleanup:0.45 \
   pipeline-stage-view:2.32 \
   docker-workflow:563.vd5d2e5c4007f \
   github-oauth:0.39 \
   basic-branch-build-strategies:71.vc1421f89888e \
   github-scm-trait-notification-context:1.1 \
   job-dsl:1.83 \
-  configuration-as-code:1616.v11393eccf675
+  configuration-as-code:1625.v27444588cc3d
 
 # USER root
 ARG version=unknown
