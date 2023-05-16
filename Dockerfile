@@ -53,7 +53,7 @@ RUN jenkins-plugin-cli --plugins \
   basic-branch-build-strategies:71.vc1421f89888e \
   github-scm-trait-notification-context:1.1 \
   job-dsl:1.83 \
-  configuration-as-code:1616.v11393eccf675
+  configuration-as-code:1625.v27444588cc3d
 
 # USER root
 ARG version=unknown
