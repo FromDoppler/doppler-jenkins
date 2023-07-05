@@ -6,7 +6,7 @@
     "@cspell/dict-es-es": "2.2.5",
     "cspell": "6.31.1",
     "eclint": "2.8.1",
-    "prettier": "2.8.8"
+    "prettier": "3.0.0"
   },
   "dependencies": {},
   "scripts": {
