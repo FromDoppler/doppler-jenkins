@@ -12,7 +12,7 @@ COPY . .
 ENV CI=true
 RUN yarn verify-format && yarn verify-spell
 
-FROM jenkins/jenkins:2.405-jdk17 as final
+FROM jenkins/jenkins:2.417-jdk17 as final
 # Keep root user because I need it to access to /var/run/docker.sock
 # hadolint ignore=DL3002
 USER root
@@ -45,15 +45,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # USER jenkins
 
 RUN jenkins-plugin-cli --plugins \
-  blueocean:1.27.4 \
+  blueocean:1.27.5 \
   ws-cleanup:0.45 \
-  pipeline-stage-view:2.32 \
+  pipeline-stage-view:2.33 \
   docker-workflow:563.vd5d2e5c4007f \
-  github-oauth:0.39 \
-  basic-branch-build-strategies:71.vc1421f89888e \
+  github-oauth:588.vf696a_350572a_ \
+  basic-branch-build-strategies:81.v05e333931c7d \
   github-scm-trait-notification-context:1.1 \
-  job-dsl:1.83 \
-  configuration-as-code:1625.v27444588cc3d
+  job-dsl:1.84 \
+  configuration-as-code:1670.v564dc8b_982d0
 
 # USER root
 ARG version=unknown
