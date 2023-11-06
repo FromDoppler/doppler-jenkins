@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "@cspell/dict-es-es": "2.2.7",
+    "@cspell/dict-es-es": "2.3.0",
     "cspell": "7.3.8",
     "eclint": "2.8.1",
     "prettier": "3.0.3"
