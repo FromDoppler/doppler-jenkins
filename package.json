@@ -4,7 +4,7 @@
   "private": true,
   "devDependencies": {
     "@cspell/dict-es-es": "2.3.1",
-    "cspell": "8.2.4",
+    "cspell": "8.3.0",
     "eclint": "2.8.1",
     "prettier": "3.1.1"
   },
